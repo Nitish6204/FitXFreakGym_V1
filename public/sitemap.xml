@@ -4,57 +4,9 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
+    <loc>https://thefitxfreak.netlify.app/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#locations</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#founder</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#trainers</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#equipment</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#zumba</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#results</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#seo-guide</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/#contact</loc>
-    <lastmod>2026-11-10T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 </urlset>
