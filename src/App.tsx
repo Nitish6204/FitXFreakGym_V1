@@ -83,7 +83,7 @@ export default function App() {
   const [emailAddress, setEmailAddress] = useState('');
   const [preferredBranch, setPreferredBranch] = useState<'OP Road' | 'Fatehgunj'>('OP Road');
   const [interestedIn, setInterestedIn] = useState('Personal Training');
-  const [preferredTime, setPreferredTime] = useState('Morning (06:00 AM - 11:00 AM)');
+  const [preferredTime, setPreferredTime] = useState('Morning (06:00 AM - 12:00 PM)');
   const [messageGoals, setMessageGoals] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [lastDispatchedNumber, setLastDispatchedNumber] = useState('6354661053');
@@ -365,7 +365,7 @@ export default function App() {
     setEmailAddress('');
     setPreferredBranch('OP Road');
     setInterestedIn('Personal Training');
-    setPreferredTime('Morning (06:00 AM - 11:00 AM)');
+    setPreferredTime('Morning (06:00 AM - 12:00 PM)');
     setMessageGoals('');
     setFormSubmitted(false);
   };
@@ -486,23 +486,23 @@ export default function App() {
     <div className="min-h-screen bg-surface font-body-md text-on-surface dark selection:bg-primary selection:text-on-primary overflow-x-clip">
       {/* HEADER: No profile icon, No location dropdown in header */}
       <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)] border-b border-outline-variant/15">
-        <div className="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-2">
+        <div className="h-16 sm:h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-2">
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('home');
             }}
-            className="flex items-center gap-3 focus:outline-none group shrink-0"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none group shrink-0"
           >
             <img
               alt="FIT X FREAK Logo"
-              className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-contain bg-white/95 p-0.5 shadow-[0_0_15px_rgba(255,51,51,0.25)] border border-primary/40 transition-transform group-hover:scale-105 shrink-0"
+              className="h-9 w-9 sm:h-11 sm:w-11 rounded-full object-contain bg-white/95 p-0.5 shadow-[0_0_15px_rgba(255,51,51,0.25)] border border-primary/40 transition-transform group-hover:scale-105 shrink-0"
               src={BRAND_ASSETS.logo}
               referrerPolicy="no-referrer"
             />
             <div className="flex flex-col">
-              <span className="font-headline-md text-on-surface uppercase tracking-wider leading-none text-lg sm:text-xl xl:text-2xl whitespace-nowrap">
+              <span className="font-headline-md text-on-surface uppercase tracking-wider leading-none text-base sm:text-xl xl:text-2xl whitespace-nowrap">
                 FIT X FREAK
               </span>
               <span className="text-[10px] text-primary tracking-widest uppercase font-semibold hidden xl:block whitespace-nowrap">
@@ -537,7 +537,7 @@ export default function App() {
           </nav>
 
           {/* Right Header CTAs */}
-          <div className="flex items-center gap-space-sm">
+          <div className="flex items-center gap-1.5 sm:gap-space-sm">
             <button
               type="button"
               onClick={() => setCallModalOpen(true)}
@@ -554,7 +554,7 @@ export default function App() {
                 e.preventDefault();
                 scrollToSection('contact', { interest: 'Free Trial Session' });
               }}
-              className="inline-flex items-center px-space-md py-space-xs sm:px-space-lg sm:py-space-sm bg-gradient-to-r from-primary-container to-secondary-container text-on-secondary-container font-label-lg rounded-lg uppercase shadow-[0_0_20px_rgba(255,51,51,0.25)] hover:brightness-110 transition-all whitespace-nowrap text-xs sm:text-sm font-bold"
+              className="inline-flex items-center px-3 py-2 sm:px-space-lg sm:py-space-sm bg-gradient-to-r from-primary-container to-secondary-container text-on-secondary-container font-label-lg rounded-lg uppercase shadow-[0_0_20px_rgba(255,51,51,0.25)] hover:brightness-110 transition-all whitespace-nowrap text-[11px] sm:text-sm font-bold"
             >
               Enquire Now
             </a>
@@ -563,7 +563,7 @@ export default function App() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
-              className="lg:hidden w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface border border-outline-variant/30 cursor-pointer"
+              className="lg:hidden w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface border border-outline-variant/30 cursor-pointer shrink-0"
             >
               <span className="material-symbols-outlined text-[22px]">
                 {mobileMenuOpen ? 'close' : 'menu'}
@@ -574,7 +574,7 @@ export default function App() {
 
         {/* Mobile Nav Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-surface-container border-b border-outline-variant/30 px-gutter py-space-md flex flex-col gap-space-xs animate-fade-in">
+          <div className="lg:hidden bg-surface-container border-b border-outline-variant/30 px-gutter py-space-md flex flex-col gap-1 animate-fade-in max-h-[calc(100dvh-4rem)] overflow-y-auto shadow-2xl">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -583,27 +583,28 @@ export default function App() {
                   e.preventDefault();
                   scrollToSection(item.id);
                 }}
-                className={`py-space-xs px-space-sm rounded text-body-md uppercase tracking-wider ${
+                className={`min-h-[42px] px-3 py-2 rounded-lg text-sm uppercase tracking-wider flex items-center justify-between ${
                   activeNav === item.id
                     ? 'bg-primary text-on-primary font-bold'
-                    : 'text-on-surface-variant hover:text-on-surface'
+                    : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50'
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                <span className="material-symbols-outlined text-[16px] opacity-60">chevron_right</span>
               </a>
             ))}
             <div className="pt-space-sm border-t border-outline-variant/20 flex flex-col gap-2 mt-space-xs">
               <div className="text-xs text-on-surface-variant font-medium">Direct Branch Hotlines:</div>
               <a
                 href="tel:+916354661053"
-                className="flex items-center justify-between px-3 py-2 rounded bg-surface-container-high text-xs font-bold text-on-surface"
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-high text-xs font-bold text-on-surface"
               >
                 <span>OP Road Branch</span>
                 <span className="text-primary font-mono">+91 6354661053</span>
               </a>
               <a
                 href="tel:+918733944072"
-                className="flex items-center justify-between px-3 py-2 rounded bg-surface-container-high text-xs font-bold text-on-surface"
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-surface-container-high text-xs font-bold text-on-surface"
               >
                 <span>Fatehgunj Branch</span>
                 <span className="text-primary font-mono">+91 8733944072</span>
@@ -614,12 +615,12 @@ export default function App() {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="w-full pt-20 bg-surface">
+      <main className="w-full pt-16 sm:pt-20 bg-surface">
         <div className="flex flex-col w-full">
           {/* HERO SECTION */}
           <section
             id="home"
-            className="relative min-h-[100vh] lg:min-h-[820px] flex items-center justify-center -mt-20 pt-24 pb-8 px-gutter overflow-hidden"
+            className="relative min-h-[100svh] lg:min-h-[820px] flex items-center justify-center -mt-16 sm:-mt-20 pt-20 sm:pt-24 pb-8 px-gutter overflow-hidden"
           >
             <div
               className="absolute inset-0 bg-cover bg-center z-0 scale-105"
@@ -720,7 +721,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.75, ease: 'easeOut' }}
-                className="text-body-lg text-on-surface-variant max-w-3xl mb-space-xl font-body-md text-base sm:text-lg leading-relaxed"
+                className="text-body-lg text-on-surface-variant max-w-3xl mb-space-lg sm:mb-space-xl font-body-md text-sm sm:text-lg leading-relaxed px-1"
               >
                 Vadodara's Destination for Strength, Fitness &amp; Transformation. Premier fitness experience with imported biomechanical equipment, competition lifting bays, and certified master trainers led by Founders Irfan Shaikh &amp; Ronak Parmar and Senior Trainer Shehab Pathan.
               </motion.p>
@@ -730,7 +731,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.95, ease: 'easeOut' }}
-                className="flex flex-wrap items-center justify-center gap-space-md mb-space-xl"
+                className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-center gap-3 sm:gap-space-md mb-space-lg sm:mb-space-xl max-w-md sm:max-w-none"
               >
                 <a
                   href="#contact"
@@ -741,7 +742,7 @@ export default function App() {
                       goalNote: 'I would like to book a 1-day free VIP trial session.',
                     });
                   }}
-                  className="px-space-xl py-space-md bg-gradient-to-r from-primary-container to-secondary-container text-on-secondary-container font-label-lg rounded-lg uppercase shadow-[0_0_30px_rgba(255,84,76,0.35)] hover:scale-105 transition-all text-sm sm:text-base font-bold cursor-pointer"
+                  className="px-6 py-3.5 sm:px-space-xl sm:py-space-md bg-gradient-to-r from-primary-container to-secondary-container text-on-secondary-container font-label-lg rounded-lg uppercase shadow-[0_0_30px_rgba(255,84,76,0.35)] hover:scale-105 transition-all text-sm sm:text-base font-bold cursor-pointer text-center"
                 >
                   Book 1-Day Free Trial
                 </a>
@@ -751,7 +752,7 @@ export default function App() {
                     e.preventDefault();
                     scrollToSection('locations');
                   }}
-                  className="px-space-xl py-space-md bg-surface-container-high/80 backdrop-blur-md text-on-surface font-label-lg rounded-lg uppercase border border-outline-variant/50 hover:bg-surface-container-highest transition-all text-sm sm:text-base font-bold cursor-pointer"
+                  className="px-6 py-3.5 sm:px-space-xl sm:py-space-md bg-surface-container-high/80 backdrop-blur-md text-on-surface font-label-lg rounded-lg uppercase border border-outline-variant/50 hover:bg-surface-container-highest transition-all text-sm sm:text-base font-bold cursor-pointer text-center"
                 >
                   Explore 2 Branches
                 </a>
@@ -884,16 +885,16 @@ export default function App() {
               <div className="w-24 h-1 bg-primary mt-space-sm rounded-full" />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-lg sm:gap-space-xl">
               {LOCATIONS.map((branch) => (
                 <article
                   key={branch.id}
-                  className="p-space-xl rounded-2xl bg-surface-container flex flex-col gap-space-lg border border-outline-variant/30 hover:border-primary/50 transition-all shadow-[0_4px_24px_rgba(0,0,0,0.3)] relative group"
+                  className="p-4 sm:p-space-xl rounded-2xl bg-surface-container flex flex-col gap-space-md sm:gap-space-lg border border-outline-variant/30 hover:border-primary/50 transition-all shadow-[0_4px_24px_rgba(0,0,0,0.3)] relative group"
                 >
-                  <div className="flex items-start justify-between gap-space-md">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-space-md">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-primary" />
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-primary shrink-0" />
                         <h3 className="font-headline-md uppercase text-on-surface text-xl sm:text-2xl">
                           {branch.name}
                         </h3>
@@ -902,12 +903,12 @@ export default function App() {
                         {branch.city}
                       </span>
                     </div>
-                    <span className="px-space-md py-space-xs rounded-full bg-primary/20 text-primary text-label-sm uppercase text-xs font-bold whitespace-nowrap">
+                    <span className="self-start px-3 py-1 rounded-full bg-primary/20 text-primary text-label-sm uppercase text-[11px] sm:text-xs font-bold whitespace-nowrap">
                       {branch.badge}
                     </span>
                   </div>
 
-                  <div className="w-full h-52 rounded-xl overflow-hidden bg-surface-container-lowest relative">
+                  <div className="w-full h-44 sm:h-52 rounded-xl overflow-hidden bg-surface-container-lowest relative">
                     <img
                       src={branch.mapImage}
                       alt={branch.mapAlt}
@@ -915,14 +916,14 @@ export default function App() {
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent flex items-end p-space-md">
-                      <span className="text-xs text-on-surface font-semibold bg-surface/80 px-2 py-1 rounded backdrop-blur-sm border border-outline-variant/30">
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent flex items-end p-3 sm:p-space-md">
+                      <span className="text-[11px] sm:text-xs text-on-surface font-semibold bg-surface/85 px-2.5 py-1 rounded backdrop-blur-sm border border-outline-variant/30">
                         {branch.highlights}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-space-sm text-body-md text-on-surface-variant text-sm">
+                  <div className="flex flex-col gap-space-sm text-body-md text-on-surface-variant text-xs sm:text-sm">
                     <div className="flex items-start gap-space-sm">
                       <span className="material-symbols-outlined text-primary shrink-0 text-[20px] mt-0.5">
                         location_on
@@ -934,11 +935,11 @@ export default function App() {
                       <span className="material-symbols-outlined text-primary shrink-0 text-[20px]">
                         call
                       </span>
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span className="text-on-surface-variant font-medium">Phone:</span>
                         <a
                           href={`tel:+91${branch.contactNumber}`}
-                          className="text-primary font-mono font-bold text-base hover:underline"
+                          className="text-primary font-mono font-bold text-sm sm:text-base hover:underline"
                           title={`Click to call ${branch.name}`}
                         >
                           {branch.contactNumberFormatted}
@@ -946,15 +947,33 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-space-sm">
-                      <span className="material-symbols-outlined text-primary shrink-0 text-[20px]">
+                    <div className="flex items-start gap-space-sm pt-1">
+                      <span className="material-symbols-outlined text-primary shrink-0 text-[20px] mt-0.5">
                         schedule
                       </span>
-                      <span>{branch.hoursSummary}</span>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 flex-1">
+                        {branch.timings.map((slot) => (
+                          <div
+                            key={slot.day}
+                            className={`px-2.5 py-1.5 rounded-lg border text-[11px] flex sm:flex-col justify-between sm:justify-start gap-1 ${
+                              slot.hours.toLowerCase() === 'closed'
+                                ? 'bg-error-container/25 border-error/30 text-error'
+                                : 'bg-surface border-outline-variant/25 text-on-surface'
+                            }`}
+                          >
+                            <span className="font-semibold uppercase tracking-wide opacity-85">
+                              {slot.day}
+                            </span>
+                            <span className="font-mono font-bold whitespace-nowrap">
+                              {slot.hours}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-md border-t border-outline-variant/20 mt-auto">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-space-sm pt-space-md border-t border-outline-variant/20 mt-auto">
                     <a
                       href={`tel:+91${branch.contactNumber}`}
                       className="py-2.5 px-3 rounded-lg bg-primary text-on-primary font-label-lg uppercase text-xs font-bold flex items-center justify-center gap-1.5 hover:brightness-110 transition-all text-center shadow-md cursor-pointer"
@@ -985,7 +1004,7 @@ export default function App() {
                       href={branch.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2.5 px-3 rounded-lg bg-surface-container-high text-on-surface font-label-lg uppercase text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-container-highest transition-all border border-outline-variant/30"
+                      className="col-span-2 sm:col-span-1 py-2.5 px-3 rounded-lg bg-surface-container-high text-on-surface font-label-lg uppercase text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-container-highest transition-all border border-outline-variant/30"
                     >
                       <span className="material-symbols-outlined text-[16px]">directions</span>
                       <span>Directions</span>
@@ -1019,7 +1038,7 @@ export default function App() {
               {FOUNDERS.map((founder, idx) => (
                 <article
                   key={founder.id}
-                  className={`p-space-lg sm:p-space-xl rounded-2xl bg-gradient-to-br from-surface-container via-surface-container to-surface-container-high relative overflow-hidden flex flex-col h-full ${
+                  className={`p-4 sm:p-space-xl rounded-2xl bg-gradient-to-br from-surface-container via-surface-container to-surface-container-high relative overflow-hidden flex flex-col h-full ${
                     idx === 0
                       ? 'border-2 border-amber-500/60 shadow-[0_0_45px_rgba(245,158,11,0.22)]'
                       : 'border border-amber-500/45 shadow-[0_0_30px_rgba(245,158,11,0.14)]'
@@ -1029,7 +1048,7 @@ export default function App() {
 
                   <div className="flex flex-col h-full gap-space-md relative z-10">
                     {/* Single Image */}
-                    <div className="w-full h-[340px] sm:h-[380px] rounded-2xl overflow-hidden bg-surface-container-lowest border-2 border-amber-500/50 shadow-2xl relative group shrink-0">
+                    <div className="w-full h-[290px] sm:h-[380px] rounded-2xl overflow-hidden bg-surface-container-lowest border-2 border-amber-500/50 shadow-2xl relative group shrink-0">
                       <img
                         src={founder.image}
                         alt={founder.alt}
@@ -1176,34 +1195,36 @@ export default function App() {
                 </div>
 
                 {/* Slider Navigation Arrows */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-mono text-on-surface-variant mr-1 hidden sm:inline">
+                <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 w-full sm:w-auto">
+                  <span className="text-xs font-mono text-on-surface-variant mr-1">
                     {trainerIndex + 1} - {Math.min(trainerIndex + trainersPerView, TRAINERS.length)} of {TRAINERS.length}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setTrainerIndex((prev) => Math.max(0, prev - 1))}
-                    disabled={trainerIndex === 0}
-                    aria-label="Previous Trainers"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTrainerIndex((prev) => Math.min(maxTrainerIndex, prev + 1))}
-                    disabled={trainerIndex >= maxTrainerIndex}
-                    aria-label="Next Trainers"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setTrainerIndex((prev) => Math.max(0, prev - 1))}
+                      disabled={trainerIndex === 0}
+                      aria-label="Previous Trainers"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTrainerIndex((prev) => Math.min(maxTrainerIndex, prev + 1))}
+                      disabled={trainerIndex >= maxTrainerIndex}
+                      aria-label="Next Trainers"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* CAROUSEL TRACK (STRICT SINGLE HORIZONTAL ROW, NEVER MULTI-ROW) */}
               <div
-                className="overflow-hidden rounded-2xl relative"
+                className="overflow-hidden rounded-2xl relative touch-pan-y"
                 onMouseEnter={() => setTrainerHovered(true)}
                 onMouseLeave={() => setTrainerHovered(false)}
                 onTouchStart={(e) => {
@@ -1447,15 +1468,15 @@ export default function App() {
             </div>
 
             {/* UNIFIED EQUIPMENT SLIDER CONTAINER */}
-            <div className="p-space-lg rounded-2xl bg-surface-container/60 border border-outline-variant/25">
+            <div className="p-3 sm:p-space-lg rounded-2xl bg-surface-container/60 border border-outline-variant/25">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-space-md gap-space-sm">
                 <div className="flex items-center gap-space-sm">
                   <div className="w-9 h-9 rounded-lg bg-primary/20 text-primary flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[20px]">fitness_center</span>
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-headline-sm uppercase text-on-surface text-lg sm:text-xl">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="font-headline-sm uppercase text-on-surface text-base sm:text-xl">
                         {equipmentBranchFilter === 'all'
                           ? 'ALL BRANCH EQUIPMENT'
                           : equipmentBranchFilter === 'op-road'
@@ -1467,40 +1488,42 @@ export default function App() {
                       </span>
                     </div>
                     <span className="text-xs text-on-surface-variant">
-                      Showing {displayedEquipment.length} machines · Single horizontal row · Hover to pause auto-scroll
+                      Showing {displayedEquipment.length} machines · Single horizontal row
                     </span>
                   </div>
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="flex items-center gap-2 self-end sm:self-auto">
+                <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
                   <span className="text-[11px] text-on-surface-variant font-mono mr-1">
                     {equipmentIndex + 1} - {Math.min(equipmentIndex + equipmentPerView, displayedEquipment.length)} of {displayedEquipment.length}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setEquipmentIndex((prev) => Math.max(0, prev - 1))}
-                    disabled={equipmentIndex === 0}
-                    aria-label="Previous Equipment"
-                    className="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">chevron_left</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setEquipmentIndex((prev) => Math.min(maxEquipmentIndex, prev + 1))}
-                    disabled={equipmentIndex >= maxEquipmentIndex}
-                    aria-label="Next Equipment"
-                    className="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">chevron_right</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setEquipmentIndex((prev) => Math.max(0, prev - 1))}
+                      disabled={equipmentIndex === 0}
+                      aria-label="Previous Equipment"
+                      className="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEquipmentIndex((prev) => Math.min(maxEquipmentIndex, prev + 1))}
+                      disabled={equipmentIndex >= maxEquipmentIndex}
+                      aria-label="Next Equipment"
+                      className="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* Slider Track (SINGLE HORIZONTAL ROW, NEVER MULTI-ROW) */}
               <div
-                className="overflow-hidden rounded-xl relative"
+                className="overflow-hidden rounded-xl relative touch-pan-y"
                 onMouseEnter={() => setEquipmentHovered(true)}
                 onMouseLeave={() => setEquipmentHovered(false)}
                 onTouchStart={(e) => {
@@ -1630,34 +1653,36 @@ export default function App() {
                 </div>
 
                 {/* Slider Navigation Arrows */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-mono text-on-surface-variant mr-1 hidden sm:inline">
+                <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 w-full sm:w-auto">
+                  <span className="text-xs font-mono text-on-surface-variant mr-1">
                     {zumbaIndex + 1} - {Math.min(zumbaIndex + zumbaPerView, zumbaVideos.length)} of {zumbaVideos.length}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setZumbaIndex((prev) => Math.max(0, prev - 1))}
-                    disabled={zumbaIndex === 0}
-                    aria-label="Previous Zumba Videos"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setZumbaIndex((prev) => Math.min(maxZumbaIndex, prev + 1))}
-                    disabled={zumbaIndex >= maxZumbaIndex}
-                    aria-label="Next Zumba Videos"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setZumbaIndex((prev) => Math.max(0, prev - 1))}
+                      disabled={zumbaIndex === 0}
+                      aria-label="Previous Zumba Videos"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setZumbaIndex((prev) => Math.min(maxZumbaIndex, prev + 1))}
+                      disabled={zumbaIndex >= maxZumbaIndex}
+                      aria-label="Next Zumba Videos"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* CAROUSEL TRACK (STRICT SINGLE HORIZONTAL ROW, MATCHES TRAINERS) */}
               <div
-                className="overflow-hidden rounded-2xl relative"
+                className="overflow-hidden rounded-2xl relative touch-pan-y"
                 onTouchStart={(e) => {
                   zumbaTouchStart.current = e.touches[0].clientX;
                 }}
@@ -1688,7 +1713,7 @@ export default function App() {
                       >
                         <article className="p-space-md rounded-2xl bg-surface-container flex flex-col h-full border border-outline-variant/25 hover:border-primary/60 hover:shadow-[0_0_24px_rgba(255,84,76,0.16)] transition-all duration-300 group">
                           {/* Portrait Video Container */}
-                          <div className="h-[380px] sm:h-[420px] rounded-xl overflow-hidden bg-black relative shrink-0 border border-outline-variant/20">
+                          <div className="h-[340px] sm:h-[420px] rounded-xl overflow-hidden bg-black relative shrink-0 border border-outline-variant/20">
                             <video
                               key={zumba.id}
                               ref={(el) => {
@@ -1919,7 +1944,7 @@ export default function App() {
                 PROVEN RESULTS IN VADODARA
               </h2>
               <p className="text-body-md text-on-surface-variant max-w-2xl mt-space-xs text-sm sm:text-base">
-                Verified fat loss, lean muscle gain, and body recomposition journeys led by Nitish Kumar Singh, Anmol Gupta, and our dedicated members across OP Road &amp; Fatehgunj.
+                Verified fat loss, lean muscle gain, and body recomposition journeys achieved by our dedicated members across OP Road &amp; Fatehgunj.
               </p>
               <div className="w-24 h-1 bg-primary mt-space-sm rounded-full" />
             </div>
@@ -1932,39 +1957,41 @@ export default function App() {
                     ALL MEMBER TRANSFORMATIONS
                   </h3>
                   <p className="text-xs text-on-surface-variant mt-0.5">
-                    1. Nitish Kumar Singh (62→68 kg) • 2. Anmol Gupta (52→64 kg) • 3–10. Verified Transformations · Hover to pause auto-scroll
+                    1. 62→68 kg Lean Muscle Gain • 2. 52→64 kg Stronger Gain • 3–10. Verified Transformations · Tap arrows or swipe
                   </p>
                 </div>
 
                 {/* Slider Navigation Arrows */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-mono text-on-surface-variant mr-1 hidden sm:inline">
+                <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 w-full sm:w-auto">
+                  <span className="text-xs font-mono text-on-surface-variant mr-1">
                     {transformationIndex + 1} - {Math.min(transformationIndex + transformationsPerView, SUCCESS_STORIES.length)} of {SUCCESS_STORIES.length}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setTransformationIndex((prev) => Math.max(0, prev - 1))}
-                    disabled={transformationIndex === 0}
-                    aria-label="Previous Transformations"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTransformationIndex((prev) => Math.min(maxTransformationIndex, prev + 1))}
-                    disabled={transformationIndex >= maxTransformationIndex}
-                    aria-label="Next Transformations"
-                    className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setTransformationIndex((prev) => Math.max(0, prev - 1))}
+                      disabled={transformationIndex === 0}
+                      aria-label="Previous Transformations"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTransformationIndex((prev) => Math.min(maxTransformationIndex, prev + 1))}
+                      disabled={transformationIndex >= maxTransformationIndex}
+                      aria-label="Next Transformations"
+                      className="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                    >
+                      <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* CAROUSEL TRACK (STRICT SINGLE HORIZONTAL ROW) */}
               <div
-                className="overflow-hidden rounded-2xl relative"
+                className="overflow-hidden rounded-2xl relative touch-pan-y"
                 onMouseEnter={() => setTransformationHovered(true)}
                 onMouseLeave={() => setTransformationHovered(false)}
                 onTouchStart={(e) => {
@@ -2002,7 +2029,7 @@ export default function App() {
                       >
                         {/* Image Container (Full Uncropped Showcase) */}
                         <div
-                          className="h-72 sm:h-80 rounded-xl overflow-hidden bg-black relative shrink-0 cursor-pointer border border-outline-variant/20"
+                          className="h-64 sm:h-80 rounded-xl overflow-hidden bg-black relative shrink-0 cursor-pointer border border-outline-variant/20"
                           onClick={() => setSelectedTransformation(story)}
                         >
                           <img
@@ -2397,15 +2424,15 @@ export default function App() {
               <div className="w-24 h-1 bg-primary mt-space-sm rounded-full" />
             </div>
 
-            <div className="p-space-xl rounded-2xl bg-surface-container border border-outline-variant/20 relative shadow-[0_0_35px_rgba(0,0,0,0.5)]">
+            <div className="p-4 sm:p-space-xl rounded-2xl bg-surface-container border border-outline-variant/20 relative shadow-[0_0_35px_rgba(0,0,0,0.5)]">
               {!formSubmitted ? (
                 <form
-                  className="flex flex-col gap-space-lg"
+                  className="flex flex-col gap-space-md sm:gap-space-lg"
                   id="lead-form"
                   onSubmit={handleFormSubmit}
                 >
                   {/* Mandatory location selection field */}
-                  <div className="p-space-md rounded-xl bg-surface border-2 border-primary/40 flex flex-col gap-space-xs">
+                  <div className="p-3 sm:p-space-md rounded-xl bg-surface border-2 border-primary/40 flex flex-col gap-space-xs">
                     <label
                       htmlFor="preferred-branch"
                       className="text-xs uppercase text-primary font-bold flex items-center gap-1.5"
@@ -2418,13 +2445,13 @@ export default function App() {
                       value={preferredBranch}
                       onChange={(e) => setPreferredBranch(e.target.value as 'OP Road' | 'Fatehgunj')}
                       required
-                      className="w-full px-space-md py-space-md rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all font-semibold text-sm cursor-pointer"
+                      className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all font-semibold text-base sm:text-sm cursor-pointer"
                     >
                       <option value="OP Road" className="bg-surface-container text-on-surface">
-                        1. OP Road (7-8th Floor, Avishkar Complex — WhatsApp: 6354661053)
+                        1. OP Road (Avishkar Complex — WhatsApp: 6354661053)
                       </option>
                       <option value="Fatehgunj" className="bg-surface-container text-on-surface">
-                        2. Fatehgunj (1st &amp; 2nd Floor, Astoria Complex, Beside Seven Seas Mall — WhatsApp: 8733944072)
+                        2. Fatehgunj (Astoria Complex, Beside Seven Seas Mall — WhatsApp: 8733944072)
                       </option>
                     </select>
                     <div className="text-[11px] text-on-surface-variant flex items-center justify-between pt-1">
@@ -2435,7 +2462,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md sm:gap-space-lg">
                     <div className="flex flex-col gap-space-xs">
                       <label
                         htmlFor="full-name"
@@ -2447,7 +2474,7 @@ export default function App() {
                         id="full-name"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm"
                         placeholder="e.g. Rahul Sharma"
                         required
                         type="text"
@@ -2464,7 +2491,7 @@ export default function App() {
                         id="mobile-number"
                         value={mobileNumber}
                         onChange={(e) => setMobileNumber(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm font-mono"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm font-mono"
                         placeholder="e.g. 9876543210"
                         required
                         type="tel"
@@ -2472,7 +2499,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md sm:gap-space-lg">
                     <div className="flex flex-col gap-space-xs">
                       <label
                         htmlFor="email-address"
@@ -2484,7 +2511,7 @@ export default function App() {
                         id="email-address"
                         value={emailAddress}
                         onChange={(e) => setEmailAddress(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm"
                         placeholder="name@example.com"
                         required
                         type="email"
@@ -2502,7 +2529,7 @@ export default function App() {
                         id="interested-in"
                         value={interestedIn}
                         onChange={(e) => setInterestedIn(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm cursor-pointer"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm cursor-pointer"
                       >
                         <option value="Personal Training with Coach">Personal Training with Coach</option>
                         <option value="Guidance with Founder Irfan Shaikh">Guidance with Founder Irfan Shaikh</option>
@@ -2517,30 +2544,30 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md sm:gap-space-lg">
                     <div className="flex flex-col gap-space-xs">
                       <label
                         htmlFor="preferred-time"
                         className="text-label-sm uppercase text-on-surface-variant text-xs"
                       >
-                        Preferred Workout Time
+                        Preferred Workout Batch
                       </label>
                       <select
                         id="preferred-time"
                         value={preferredTime}
                         onChange={(e) => setPreferredTime(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm cursor-pointer"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm cursor-pointer"
                       >
-                        <option value="Morning (06:00 AM - 11:00 AM)">
-                          Morning (06:00 AM - 11:00 AM)
+                        <option value="Morning (06:00 AM - 12:00 PM)">
+                          Morning (06:00 AM - 12:00 PM)
                         </option>
-                        <option value="Afternoon (12:00 PM - 04:00 PM)">
-                          Afternoon (12:00 PM - 04:00 PM)
-                        </option>
-                        <option value="Evening (05:00 PM - 11:00 PM)">
-                          Evening (05:00 PM - 11:00 PM)
+                        <option value="Evening (04:00 PM - 10:00 PM)">
+                          Evening (04:00 PM - 10:00 PM)
                         </option>
                       </select>
+                      <span className="text-[11px] text-on-surface-variant">
+                        Mon – Sat open · Sunday Closed
+                      </span>
                     </div>
 
                     <div className="flex flex-col gap-space-xs">
@@ -2554,7 +2581,7 @@ export default function App() {
                         id="message-goals"
                         value={messageGoals}
                         onChange={(e) => setMessageGoals(e.target.value)}
-                        className="w-full px-space-md py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-sm"
+                        className="w-full px-3 py-3 sm:px-space-md sm:py-space-md rounded-lg bg-surface border border-outline-variant/30 text-on-surface focus:border-primary outline-none transition-all text-base sm:text-sm"
                         placeholder="e.g. Looking for weight loss and muscle building"
                       />
                     </div>
@@ -2618,17 +2645,17 @@ export default function App() {
       </main>
 
       {/* FLOATING ACTION BUTTONS */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-space-sm">
+      <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2 sm:gap-space-sm">
         <button
           type="button"
           onClick={() => {
             setVisitorSubmitted(false);
             setVisitorModalOpen(true);
           }}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-[0_0_20px_rgba(255,84,76,0.6)] hover:scale-105 transition-all cursor-pointer font-bold text-xs uppercase border border-white/20 animate-pulse"
+          className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-[0_0_20px_rgba(255,84,76,0.6)] hover:scale-105 transition-all cursor-pointer font-bold text-[11px] sm:text-xs uppercase border border-white/20 animate-pulse"
           title="Claim Free 1-Day VIP Pass"
         >
-          <span className="material-symbols-outlined text-[16px]">redeem</span>
+          <span className="material-symbols-outlined text-[15px] sm:text-[16px]">redeem</span>
           <span>Free 1-Day Pass</span>
         </button>
 
@@ -3040,14 +3067,14 @@ export default function App() {
       {/* TRANSFORMATION LIGHTBOX MODAL */}
       {selectedTransformation && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-gutter animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-gutter animate-fade-in"
           onClick={() => setSelectedTransformation(null)}
         >
           <div
-            className="max-w-3xl w-full rounded-2xl bg-surface-container border border-primary/40 overflow-hidden p-space-lg flex flex-col gap-space-md shadow-[0_0_50px_rgba(0,0,0,0.85)] max-h-[92vh] overflow-y-auto"
+            className="max-w-3xl w-full rounded-2xl bg-surface-container border border-primary/40 overflow-hidden p-4 sm:p-space-lg flex flex-col gap-space-md shadow-[0_0_50px_rgba(0,0,0,0.85)] max-h-[90dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="h-[360px] sm:h-[480px] rounded-xl overflow-hidden bg-black flex items-center justify-center relative border border-outline-variant/20">
+            <div className="h-[260px] sm:h-[480px] rounded-xl overflow-hidden bg-black flex items-center justify-center relative border border-outline-variant/20 shrink-0">
               <img
                 src={selectedTransformation.image}
                 alt={selectedTransformation.alt}
@@ -3076,7 +3103,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setSelectedTransformation(null)}
-                className="px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface text-xs uppercase font-bold hover:bg-primary hover:text-on-primary transition-all cursor-pointer shrink-0 self-end sm:self-center"
+                className="px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface text-xs uppercase font-bold hover:bg-primary hover:text-on-primary transition-all cursor-pointer shrink-0 self-end sm:self-center"
               >
                 Close Preview
               </button>
@@ -3088,24 +3115,24 @@ export default function App() {
       {/* DEDICATED STUDIO & ZUMBA VIDEO THEATER MODAL */}
       {activeStudioVideo && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-gutter animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-gutter animate-fade-in"
           onClick={() => setActiveStudioVideo(null)}
         >
           <div
-            className="max-w-4xl w-full rounded-2xl bg-surface-container border border-primary/40 overflow-hidden p-space-lg flex flex-col gap-space-md shadow-[0_0_50px_rgba(255,84,76,0.3)] max-h-[92vh] overflow-y-auto"
+            className="max-w-4xl w-full rounded-2xl bg-surface-container border border-primary/40 overflow-hidden p-4 sm:p-space-lg flex flex-col gap-space-md shadow-[0_0_50px_rgba(255,84,76,0.3)] max-h-[90dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-2 border-b border-outline-variant/20">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping" />
-                <span className="text-xs uppercase font-bold text-primary tracking-wider">
+            <div className="flex items-center justify-between pb-2 border-b border-outline-variant/20 gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping shrink-0" />
+                <span className="text-[11px] sm:text-xs uppercase font-bold text-primary tracking-wider truncate">
                   {activeStudioVideo.branchName} · {activeStudioVideo.category} ({activeStudioVideo.duration})
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveStudioVideo(null)}
-                className="w-8 h-8 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary flex items-center justify-center cursor-pointer transition-colors"
+                className="w-8 h-8 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary flex items-center justify-center cursor-pointer transition-colors shrink-0"
                 aria-label="Close Video"
               >
                 <span className="material-symbols-outlined text-[18px]">close</span>
@@ -3114,7 +3141,7 @@ export default function App() {
 
             <div
               className={`rounded-xl overflow-hidden bg-black shadow-2xl relative flex items-center justify-center ${
-                activeStudioVideo.isPortrait ? 'max-h-[68vh] aspect-[9/16] mx-auto' : 'w-full aspect-video'
+                activeStudioVideo.isPortrait ? 'max-h-[58dvh] sm:max-h-[68vh] aspect-[9/16] mx-auto' : 'w-full aspect-video'
               }`}
             >
               <video
@@ -3275,8 +3302,8 @@ export default function App() {
       )}
 
       {/* FOOTER */}
-      <footer className="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/20">
-        <div className="max-w-7xl mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-space-xl">
+      <footer className="w-full bg-surface-container-low pt-space-xl pb-28 sm:pb-space-xl border-t border-outline-variant/20">
+        <div className="max-w-7xl mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-space-lg sm:gap-space-xl">
           <div className="flex flex-col gap-space-md">
             <div className="flex items-center gap-space-md">
               <img
@@ -3290,6 +3317,12 @@ export default function App() {
             <p className="text-body-md text-on-surface-variant text-xs leading-relaxed">
               Vadodara’s highest-standard gym with Olympic-grade machinery, certified personal trainers, and uncompromising workout atmosphere across OP Road and Fatehgunj.
             </p>
+            <div className="p-2.5 rounded-xl bg-surface-container border border-outline-variant/20 text-[11px] flex flex-col gap-0.5">
+              <span className="font-bold text-primary uppercase tracking-wider">Gym Timings (Mon – Sat)</span>
+              <span className="text-on-surface">Morning: 06:00 AM – 12:00 PM</span>
+              <span className="text-on-surface">Evening: 04:00 PM – 10:00 PM</span>
+              <span className="text-error font-semibold">Sunday: Closed</span>
+            </div>
           </div>
 
           <div className="flex flex-col gap-space-xs text-xs">
@@ -3458,7 +3491,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-gutter mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant text-xs">
+        <div className="max-w-7xl mx-auto px-gutter mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant text-xs text-center sm:text-left">
           <span>
             © {new Date().getFullYear()} FIT X FREAK – Vadodara's Best Gym. All rights reserved.
           </span>

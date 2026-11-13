@@ -139,9 +139,9 @@ export const WHY_US_FEATURES = [
   },
   {
     icon: 'schedule',
-    title: 'Flexible Everyday Timings',
+    title: 'Split Morning & Evening Batches',
     description:
-      'Early morning 06:00 AM to 11:00 PM late evening access so you can train whenever your busy schedule permits.',
+      'Morning 6:00 AM – 12:00 PM and Evening 4:00 PM – 10:00 PM access (Mon–Sat · Sunday Closed) for focused training around your routine.',
   },
   {
     icon: 'group',
@@ -170,16 +170,16 @@ export const LOCATIONS: LocationBranch[] = [
     contactNumber: '6354661053',
     contactNumberFormatted: '+91 6354661053',
     whatsappUrl: 'https://wa.me/916354661053',
-    hoursSummary: 'Mon - Sun: 06:00 AM - 11:00 PM',
+    hoursSummary: 'Morning: 6:00 AM - 12:00 PM · Evening: 4:00 PM - 10:00 PM · Sun: Closed',
     highlights: '7-8th Floor Rooftop Elevation, Imported Biomechanical Racks, Olympic Free Weight Deck',
     mapImage:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuAmAeeRyQizVdVFnZTm8fvZmqShYiSp1yTZmJBj9MegMG9gEdB4djdNWGyX_0q5kiCfjeWtys9RDM_3qMwQj5NHgSiE27GpIIJzXpmOL1HxI5pia5VD7-JWuqbZYoz1WHUQZAJhlh7vQ9UgnHPMRr5ivGSvw0mN_LcAN9r1wir7r9HrrvbfG4aKXWU1N99muOgC3YTJdsfkt6lJeqdDRrnnxsfsdvqVi3BQrllLWKrxLXJGqQTT17PvtA',
     mapAlt: 'Map view of FIT X FREAK – OP Road Gym Vadodara',
     googleMapsUrl: 'https://maps.google.com/?q=Avishkar+Complex+Old+Padra+Road+Vadodara+Gujarat+390007',
     timings: [
-      { day: 'Monday - Friday', hours: '06:00 AM - 11:00 PM' },
-      { day: 'Saturday', hours: '06:00 AM - 11:00 PM' },
-      { day: 'Sunday', hours: '07:00 AM - 09:00 PM' },
+      { day: 'Morning (Mon - Sat)', hours: '06:00 AM - 12:00 PM' },
+      { day: 'Evening (Mon - Sat)', hours: '04:00 PM - 10:00 PM' },
+      { day: 'Sunday', hours: 'Closed' },
     ],
   },
   {
@@ -194,7 +194,7 @@ export const LOCATIONS: LocationBranch[] = [
     contactNumber: '8733944072',
     contactNumberFormatted: '+91 8733944072',
     whatsappUrl: 'https://wa.me/918733944072',
-    hoursSummary: 'Mon - Sun: 06:00 AM - 11:00 PM',
+    hoursSummary: 'Morning: 6:00 AM - 12:00 PM · Evening: 4:00 PM - 10:00 PM · Sun: Closed',
     highlights: 'Astoria Complex Dual-Floor Club, Zumba Studio, High-Octane Hypertrophy & Cable Suites',
     mapImage:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuC78NFgKosCBM00OP_6BXqL99nI5cahk-v2HdPCpLE6Jq_GTYfgAfqATztA8jDiRMjNrSf7w78b8baoHcU8wswb_Ab4RiOzqB8Dd2IttnWMcj0lEiUfwNEmgOousvexFFwHege5lLr10ZGpGyY21xPuLO-PCKBmS5Rx9vhz9tHQxHmhJKDoQ71cOg1D3mur7e4Uk_iH1nyoxkqi8ShQSBFqc7xu9bt_abVzIpjA8F0VIMIBmq5GG63LIQ',
@@ -202,9 +202,9 @@ export const LOCATIONS: LocationBranch[] = [
     googleMapsUrl:
       'https://maps.google.com/?q=Astoria+Complex+Beside+Seven+Seas+Mall+Fatehgunj+Vadodara+Gujarat+390008',
     timings: [
-      { day: 'Monday - Friday', hours: '06:00 AM - 11:00 PM' },
-      { day: 'Saturday', hours: '06:00 AM - 11:00 PM' },
-      { day: 'Sunday', hours: '07:00 AM - 09:00 PM' },
+      { day: 'Morning (Mon - Sat)', hours: '06:00 AM - 12:00 PM' },
+      { day: 'Evening (Mon - Sat)', hours: '04:00 PM - 10:00 PM' },
+      { day: 'Sunday', hours: 'Closed' },
     ],
   },
 ];
@@ -717,32 +717,32 @@ export const FACILITY_VIDEOS: StudioVideo[] = STUDIO_VIDEOS;
 
 // ==========================================
 // PROVEN RESULTS IN VADODARA (Member Transformations)
-// 1. Nitish Kumar Singh (62 kg -> 68 kg, +6 kg Lean Muscle Gain)
-// 2. Anmol Gupta (52 kg -> 64 kg, +12 kg Lean Muscle Gain)
+// 1. 62 kg -> 68 kg (+6 kg Lean Muscle Gain)
+// 2. 52 kg -> 64 kg (+12 kg Lean Muscle Gain)
 // 3-10. Verified Member Transformations (02..09)
 // ==========================================
 export const SUCCESS_STORIES: SuccessStory[] = [
   {
     id: 'trans-nitish',
-    name: 'Nitish Kumar Singh',
+    name: '62 kg → 68 kg Lean Muscle Gain',
     statHighlight: '62 kg → 68 kg (+6 kg Lean Muscle Gain)',
     duration: '+6 kg Lean Muscle',
     quote:
-      'Structured progressive overload, clean nutrition tracking, and dedicated strength coaching at FIT X FREAK helped Nitish pack on 6 kg of dense lean muscle mass with visible vascularity and athletic strength.',
+      'Structured progressive overload, clean nutrition tracking, and dedicated strength coaching at FIT X FREAK helped add 6 kg of dense lean muscle mass with visible vascularity and athletic strength.',
     image: '/assets/aistudio/Nitish_s_62_68_kg_Transformation_2683f972.jpg',
-    alt: 'Nitish Kumar Singh 62 kg to 68 kg lean muscle transformation at FIT X FREAK Vadodara',
+    alt: '62 kg to 68 kg lean muscle transformation at FIT X FREAK Vadodara',
     branch: 'FIT X FREAK – OP Road',
     featured: true,
   },
   {
     id: 'trans-anmol',
-    name: 'Anmol Gupta',
+    name: '52 kg → 64 kg Stronger Gain',
     statHighlight: '52 kg → 64 kg (+12 kg Lean Muscle Gain)',
     duration: '+12 kg Lean Muscle',
     quote:
       'Going from 52 kg to a solid, athletic 64 kg (+12 kg lean gain) took relentless consistency, compound lifting programming, and daily guidance from the FIT X FREAK coaching team.',
     image: '/assets/aistudio/52_to_64_kg__Stronger_Transformation_72da4994.jpg',
-    alt: 'Anmol Gupta 52 kg to 64 kg stronger transformation at FIT X FREAK Vadodara',
+    alt: '52 kg to 64 kg stronger transformation at FIT X FREAK Vadodara',
     branch: 'FIT X FREAK – Fatehgunj',
     featured: true,
   },
