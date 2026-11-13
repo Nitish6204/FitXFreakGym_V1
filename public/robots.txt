@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Index for FIT X FREAK Vadodara
+Sitemap: https://ais-pre-iaqvpgzcddwkq4tovouw7p-970294430153.asia-southeast1.run.app/sitemap.xml
